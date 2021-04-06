@@ -1,0 +1,13 @@
+- hosts: swarm_manager_prime
+  tasks:
+    
+    - name: Get info on Docker Swarm
+      docker_swarm_info:
+        services: yes
+      register: result
+      
+      
+    - debug:
+        var: result
+           
+      
