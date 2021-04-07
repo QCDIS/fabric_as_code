@@ -3,13 +3,15 @@
   tasks:
     
     - shell: "sudo docker service ls --format '{{ '{{' }} json . {{ '}}' }}' > /tmp/services.json"
-      
-    - shell: "cat /tmp/services.json | jq --slurp"
-      register: services
+
+
+    - include_vars:
+        file: /tmp/services.json
+        name: services
       
       
       
     - debug:
-        var: services.stdout
+        var: services
            
       
