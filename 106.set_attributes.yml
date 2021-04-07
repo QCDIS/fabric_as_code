@@ -1,4 +1,5 @@
 - hosts: swarm_manager_prime
+  become: yes
   tasks:
     
     - name: Get info on Docker Swarm
