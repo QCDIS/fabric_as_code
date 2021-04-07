@@ -2,7 +2,7 @@
   become: yes
   tasks:
     
-    - shell: "sudo docker ps --format '{{ '{{' }} .Names {{ '}}' }}'"
+    - shell: "sudo docker service ls --format '{{ '{{' }} json . {{ '}}' }}'"
       register: services
       
       
