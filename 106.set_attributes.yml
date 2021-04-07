@@ -2,7 +2,7 @@
   become: yes
   tasks:
     
-    - shell: "sudo docker service ls --format '{{ '{{' }} .NetworkSettings.IPAddress {{ '}}' }}' | jq --slurp"
+    - shell: "sudo docker service ls --format  {% raw %}'{{ .NetworkSettings.IPAddress }}' {% endraw %}"
       register: services
       
       
