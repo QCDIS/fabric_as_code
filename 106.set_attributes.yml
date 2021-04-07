@@ -2,7 +2,7 @@
   become: yes
   tasks:
     
-    - shell: "sudo docker service ls --format '{{ '{{' }} json . {{ '}}' }}' > /tmp/services.json"
+    - shell: "sudo docker service ls --format '{{ '{{' }} json . {{ '}}' }}' | | jq --slurp > /tmp/services.json"
 
      
     - fetch:
