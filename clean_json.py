@@ -4,7 +4,11 @@ import sys
 inpath = sys.argv[1]
 outpath = sys.argv[2]
 
-g = open(inpath, 'r')
-with open(outpath, 'w') as fout:
-  for l in g:
-    fout.write(json.dumps(eval(l)))
+
+# read file
+with open(inpath, 'r') as myfile:
+    data=myfile.read()
+    
+obj = json.loads(data)
+
+print(json.dumps(obj))
