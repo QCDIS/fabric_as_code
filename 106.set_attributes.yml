@@ -8,7 +8,7 @@
     - include_vars:
         file: /tmp/services.json
         name: services
-      remote_src: yes
+        remote_src: yes
       
       
       
