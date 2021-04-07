@@ -2,14 +2,11 @@
   become: yes
   tasks:
     
-    - name: Get info on Docker Swarm
-      docker_swarm_info:
-        services: yes
-      ignore_errors: yes
-      register: result
+     - shell: sudo docker service ls --format "{{json . }}" | jq --slurp
+      register: services
       
       
     - debug:
-        var: result
+        var: services.stdout
            
       
