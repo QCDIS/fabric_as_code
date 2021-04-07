@@ -3,9 +3,9 @@
   tasks:
     
          
-    - copy: src=get_swarm_services.sh dest=/tmp/get_swarm_services.sh mode=077
+    - copy: src=clean_json.py dest=/tmp/clean_json.py mode=077
     
-    - shell: sh /tmp/get_swarm_services.sh
+    - shell: python /tmp/clean_json.py
       register: services      
       
     - debug:
