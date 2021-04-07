@@ -2,21 +2,11 @@
   become: yes
   tasks:
     
-    - shell: "sudo docker service ls --format '{{ '{{' }} json . {{ '}}' }}' | | jq --slurp > /tmp/services.json"
-
-     
-    - fetch:
-        src: /tmp/services.json
-        dest: ./services.json
-        flat: true
-        
-        
-
-    - include_vars:
-        file: services.json
-        name: services
-      
-      
+         
+    - copy: src=get_swarm_services.sh dest=/tmp/ mode=077
+    
+    - local_action: command sudo sh /tmp/get_swarm_services.sh
+      register: services      
       
     - debug:
         var: services
