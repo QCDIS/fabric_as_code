@@ -4,7 +4,7 @@
     
     - name: Get info on Docker Swarm
       docker_swarm_info:
-#         services: yes
+        services: yes
       ignore_errors: yes
       register: result
       
