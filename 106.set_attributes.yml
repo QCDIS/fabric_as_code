@@ -3,9 +3,9 @@
   tasks:
     
          
-    - copy: src=get_swarm_services.sh dest=/tmp/ mode=077
+    - copy: src=get_swarm_services.sh dest=/tmp/get_swarm_services.sh mode=077
     
-    - local_action: command sudo sh /tmp/get_swarm_services.sh
+    - local_action: command sh /tmp/get_swarm_services.sh
       register: services      
       
     - debug:
