@@ -5,7 +5,12 @@
     - shell: "sudo docker service ls --format '{{ '{{' }} json . {{ '}}' }}' > /tmp/services.json"
 
      
-    - copy: src= /tmp/services.json dest=services.json
+    - fetch:
+        src: /tmp/services.json
+        dest: ./services.json
+        flat: true
+        
+        
 
     - include_vars:
         file: services.json
