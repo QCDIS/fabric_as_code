@@ -2,8 +2,11 @@
   become: yes
   tasks:
     
-    - shell: "sudo docker service ls --format '{{ '{{' }} json . {{ '}}' }}' > services.json && cat services.json | jq --slurp"
+    - shell: "sudo docker service ls --format '{{ '{{' }} json . {{ '}}' }}' > /tmp/services.json"
+      
+    - shell: "cat /tmp/services.json | jq --slurp"
       register: services
+      
       
       
     - debug:
