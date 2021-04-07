@@ -5,7 +5,7 @@
          
     - copy: src=get_swarm_services.sh dest=/tmp/get_swarm_services.sh mode=077
     
-    - local_action: command sh /tmp/get_swarm_services.sh
+    - local_action: command pwd #sh /tmp/get_swarm_services.sh
       register: services      
       
     - debug:
