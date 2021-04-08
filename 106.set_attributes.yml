@@ -12,8 +12,8 @@
     - shell: python  /tmp/list_docker_services.py  > /tmp/services.json 
     
     - copy: 
-        src: get_service_urls.py.py 
-        dest: /tmp/get_service_urls.py.py 
+        src: get_service_urls.py
+        dest: /tmp/get_service_urls.py
         mode: 077
 
     - name: Get the public IP address of the network.
