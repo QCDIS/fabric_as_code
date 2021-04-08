@@ -42,17 +42,18 @@
 - hosts: localhost
   connection: local
   tasks:  
- 
-    - shell: ls -lah  /var/lib/awx/
-      register: cmd
+
+
+    - vars:
+      services: "{{  lookup('file', '/var/lib/awx/services.json ') | from_json }}"
+
 
         
-    - include_vars:
-        file: /var/lib/awx/services.json 
-        name: services
+#     - include_vars:
+#         file: /var/lib/awx/services.json 
+#         name: services
         
         
     - debug:
-        var: item
-      loop: "{{ services | dict2items }}"
+        var: services
       
