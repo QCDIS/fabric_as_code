@@ -36,7 +36,7 @@
 
     - set_fact: 
         attributes: 
-          service_urls: {{item}}
+          service_urls: "{{item}}"
       loop: "{{ services | dict2items }}"
 
 #     - set_stats:
