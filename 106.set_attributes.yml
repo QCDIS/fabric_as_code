@@ -5,12 +5,16 @@
          
     - copy: src=list_docker_services.py dest=/tmp/list_docker_services.py mode=077
     
-    - shell: python /tmp/list_docker_services.py
+    - shell: python /tmp/list_docker_services.py > /tmp/services.json
       register: services      
       
-    - debug:
-        var: item
-      loop: "{{ services.stdout | dict2items }}"
+    - fetch: src=/tmp/services.json dest=services.json mode=077
+    
+    - shell: jq. services.json
+      
+#     - debug:
+#         var: item
+#       loop: "{{ services.stdout | dict2items }}"
         
 #     - name: Get the public IP address of the network.
 #       uri:
