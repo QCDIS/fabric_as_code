@@ -8,13 +8,13 @@
         dest: /tmp/list_docker_services.py 
         mode: 077
     
-    - shell: python /tmp/list_docker_services.py > /tmp/services.json
-      register: services      
+    - shell: python /tmp/list_docker_services.py > /tmp/services.json 
             
-    - fetch: 
-        src: /tmp/services.json 
-        dest: ./services.json 
-        flat: yes
+    - shell: jq . /tmp/services.json
+      register: services      
+      
+    - debug:
+        var: services
         
     - include_vars:
         file: ./services.json 
