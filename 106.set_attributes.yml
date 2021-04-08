@@ -3,22 +3,21 @@
   tasks:
     
          
-    - copy: src=list_docker_services.py dest=/tmp/list_docker_services.py mode=077
+    - copy: 
+        src: list_docker_services.py 
+        dest: /tmp/list_docker_services.py 
+        mode: 077
     
     - shell: python /tmp/list_docker_services.py > /tmp/services.json
       register: services      
-      
-    - shell: pwd && hostname
-      register: cmd
-      
-      
-    - debug:
-        var: cmd
-      
-#     - fetch: src=/tmp/services.json dest=$HOME/services.json mode=077
+            
+    - fetch: 
+        src: /tmp/services.json 
+        dest: $HOME/services.json 
+        flat: yes
         
     - include_vars:
-        file: /tmp/services.json
+        file: $HOME/services.json 
         name: services
       
 #     - debug:
