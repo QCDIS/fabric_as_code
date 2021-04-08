@@ -41,13 +41,9 @@
 #       register: attributes
 - hosts: localhost
   connection: local
+  vars:
+    services: "{{  lookup('file', '/var/lib/awx/services.json ') | from_json }}"
   tasks:  
-
-
-    - vars:
-        services: "{{  lookup('file', '/var/lib/awx/services.json ') | from_json }}"
-
-
         
 #     - include_vars:
 #         file: /var/lib/awx/services.json 
