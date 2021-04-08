@@ -13,7 +13,7 @@
     
     - fetch:
         src: /tmp/services.json 
-        dest: $HOME/
+        dest: /var/lib/awx/services.json 
         flat: yes 
     
 #     - include_vars:
@@ -45,7 +45,7 @@
   connection: local
   tasks:  
  
-    - shell: ls -lah $HOME
+    - shell: ls -lah  /var/lib/awx/
       register: cmd
       
       
