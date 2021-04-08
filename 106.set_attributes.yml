@@ -26,6 +26,10 @@
       retries: 6
       delay: 10
       
+      
+    - debug:
+        var: public_ip
+      
     - shell: python /tmp/get_service_urls.py /tmp/services.json "{{public_ip['ip']}}"  > /tmp/service_urls.json 
       register: out
       
@@ -44,6 +48,7 @@
   vars:
     service_urls: "{{  lookup('file', '/var/lib/awx/service_urls.json') | from_json }}"
   tasks:  
+  
 
     - set_fact: 
         attributes: 
@@ -51,4 +56,8 @@
         
     - debug:
         var: attributes
-      
+  
+
+    - set_stats:
+        data: "{{ attributes }}"
+      register: attributes
