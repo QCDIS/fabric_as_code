@@ -5,7 +5,7 @@
          
     - copy: src=list_docker_services.py dest=/tmp/list_docker_services.py mode=077
     
-    - shell: python /tmp/list_docker_services.py
+    - script: /tmp/list_docker_services.py
       register: services      
       
     - debug:
