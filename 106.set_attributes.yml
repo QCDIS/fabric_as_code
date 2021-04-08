@@ -26,10 +26,6 @@
       retries: 6
       delay: 10
       
-      
-    - debug:
-        var: public_ip
-      
     - shell: python /tmp/get_service_urls.py /tmp/services.json "{{public_ip['json']['ip']}}"  > /tmp/service_urls.json 
       
     - debug:
@@ -50,13 +46,9 @@
   
 
     - set_fact: 
-        attributes: 
-          service_urls: "{{service_urls}}"    
-        
-    - debug:
-        var: attributes
-  
+        service_urls: "{{service_urls}}"    
 
     - set_stats:
-        data: "{{ attributes }}"
+        data: 
+          attributes: "{{service_urls}}"   
       register: attributes
