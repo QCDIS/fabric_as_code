@@ -30,8 +30,7 @@
     - debug:
         var: public_ip
       
-    - shell: python /tmp/get_service_urls.py /tmp/services.json "{{public_ip['ip']}}"  > /tmp/service_urls.json 
-      register: out
+    - shell: python /tmp/get_service_urls.py /tmp/services.json "{{public_ip['json']['ip']}}"  > /tmp/service_urls.json 
       
     - debug:
         var: out
