@@ -8,7 +8,14 @@
     - shell: python /tmp/list_docker_services.py > /tmp/services.json
       register: services      
       
-    - fetch: src=/tmp/services.json dest=$HOME/services.json mode=077
+    - shell: pwd && hostname
+      register: cmd
+      
+      
+    - debug:
+        var: cmd
+      
+#     - fetch: src=/tmp/services.json dest=$HOME/services.json mode=077
         
     - include_vars:
         file: /tmp/services.json
