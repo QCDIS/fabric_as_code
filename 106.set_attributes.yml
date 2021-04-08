@@ -50,6 +50,7 @@
 
     - set_stats:
         data: 
-          attributes: 
-            service_urls: "{{service_urls}}"   
+          tic:
+            attributes: 
+              service_urls: "{{service_urls}}"   
       register: attributes
