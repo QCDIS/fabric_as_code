@@ -11,6 +11,10 @@
     - fetch: src=/tmp/services.json dest=services.json mode=077
     
     - shell: cat services.json
+    
+    - include_vars:
+        file: services.json
+        name: services
       
 #     - debug:
 #         var: item
