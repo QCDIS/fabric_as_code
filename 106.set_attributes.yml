@@ -3,9 +3,9 @@
   tasks:
     
          
-    - copy: src=clean_json.py dest=/tmp/clean_json.py mode=077
+    - copy: src=list_docker_services.py dest=/tmp/list_docker_services.py mode=077
     
-    - shell: python /tmp/clean_json.py /tmp/services.json /tmp/services_clean.json
+    - shell: python /tmp/list_docker_services.py
       register: services      
       
     - debug:
