@@ -10,7 +10,7 @@
       
     - fetch: src=/tmp/services.json dest=services.json mode=077
     
-    - shell: jq. services.json
+    - shell: cat services.json
       
 #     - debug:
 #         var: item
