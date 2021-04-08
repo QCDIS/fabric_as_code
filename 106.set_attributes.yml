@@ -4,12 +4,12 @@
   tasks:
     
          
-#     - copy: 
-#         src: list_docker_services.py 
-#         dest: /tmp/list_docker_services.py 
-#         mode: 077
+    - copy: 
+        src: list_docker_services.py 
+        dest: /tmp/list_docker_services.py 
+        mode: 077
     
-    - shell: docker service ls --format '{{ '{{' }} json . {{ '}}' }}' > /tmp/services.json 
+    - shell: python  /tmp/list_docker_services.py  > /tmp/services.json 
     
     - fetch:
         src: /tmp/services.json 
