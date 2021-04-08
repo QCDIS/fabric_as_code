@@ -21,7 +21,7 @@
 - hosts: swarm_manager_prime
 #   connection: local
   vars:
-    services: "{{  lookup('file', '/tmp/services.json') | from_json }}"
+    services: "{{  lookup('file', '/var/lib/awx/services.json') | from_json }}"
   tasks:  
   
 #     - name: Get the public IP address of the network.
