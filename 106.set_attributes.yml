@@ -11,17 +11,19 @@
     
     - shell: python  /tmp/list_docker_services.py  > /tmp/services.json 
     
-    - shell: jq . /tmp/services.json 
+#     - shell: jq . /tmp/services.json 
     
-    - fetch:
-        src: /tmp/services.json 
-        dest: /var/lib/awx/services.json 
-        flat: yes 
+#     - fetch:
+#         src: /tmp/services.json 
+#         dest: /var/lib/awx/services.json 
+#         flat: yes 
     
-
-      
-
-        
+- hosts: swarm_manager_prime
+#   connection: local
+  vars:
+    services: "{{  lookup('file', '/tmp/services.json') | from_json }}"
+  tasks:  
+  
 #     - name: Get the public IP address of the network.
 #       uri:
 #         url: https://api.ipify.org?format=json
@@ -31,6 +33,7 @@
 #       until: public_ip.status == 200
 #       retries: 6
 #       delay: 10
+
 #     - set_fact: 
 #         attributes: 
 #           service_urls: {{public_ip['ip']}}:{{ 
@@ -38,17 +41,7 @@
 
 #     - set_stats:
 #         data: "{{ attributes }}"
-#       register: attributes
-- hosts: localhost
-  connection: local
-  vars:
-    services: "{{  lookup('file', '/var/lib/awx/services.json') | from_json }}"
-  tasks:  
-        
-#     - include_vars:
-#         file: /var/lib/awx/services.json 
-#         name: services
-        
+#       register: attributes        
         
     - debug:
         var: services
