@@ -26,7 +26,7 @@
       retries: 6
       delay: 10
       
-    - shell: python /tmp/get_service_urls.py /tmp/services.json "{{public_ip}}"
+    - shell: python /tmp/get_service_urls.py /tmp/services.json "{{public_ip['ip']}}"
       register: out
       
     - debug:
