@@ -9,9 +9,7 @@
       register: services      
       
     - fetch: src=/tmp/services.json dest=$HOME/services.json mode=077
-    
-    - shell: cat $HOME/services.json
-    
+        
     - include_vars:
         file: $HOME/services.json
         name: services
