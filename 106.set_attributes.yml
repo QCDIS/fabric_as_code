@@ -11,7 +11,7 @@
     - fetch: src=/tmp/services.json dest=$HOME/services.json mode=077
         
     - include_vars:
-        file: $HOME/services.json
+        file:/tmp/services.json
         name: services
       
 #     - debug:
