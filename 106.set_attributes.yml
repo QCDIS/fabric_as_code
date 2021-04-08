@@ -11,6 +11,8 @@
     
     - shell: python  /tmp/list_docker_services.py  > /tmp/services.json 
     
+    - shell: jq . /tmp/services.json 
+    
     - fetch:
         src: /tmp/services.json 
         dest: /var/lib/awx/services.json 
