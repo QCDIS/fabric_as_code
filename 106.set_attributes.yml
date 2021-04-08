@@ -13,11 +13,11 @@
             
     - fetch: 
         src: /tmp/services.json 
-        dest: $HOME/services.json 
+        dest: ./services.json 
         flat: yes
         
     - include_vars:
-        file: $HOME/services.json 
+        file: ./services.json 
         name: services
       
 #     - debug:
