@@ -45,7 +45,7 @@
 
 
     - vars:
-      services: "{{  lookup('file', '/var/lib/awx/services.json ') | from_json }}"
+        services: "{{  lookup('file', '/var/lib/awx/services.json ') | from_json }}"
 
 
         
