@@ -13,7 +13,7 @@
     
     - fetch:
         src: /tmp/services.json 
-        dest: /tmp/
+        dest: $HOME/
         flat: yes 
     
 #     - include_vars:
@@ -45,7 +45,7 @@
   connection: local
   tasks:  
  
-    - shell: ls -lah /tmp
+    - shell: ls -lah $HOME
       register: cmd
       
       
