@@ -13,10 +13,10 @@
     
 #     - shell: jq . /tmp/services.json 
     
-#     - fetch:
-#         src: /tmp/services.json 
-#         dest: /var/lib/awx/services.json 
-#         flat: yes 
+    - fetch:
+        src: /tmp/services.json 
+        dest: /var/lib/awx/services.json 
+        flat: yes 
     
 - hosts: swarm_manager_prime
 #   connection: local
