@@ -12,9 +12,9 @@
     - shell: python /tmp/list_docker_services.py > /tmp/services.json 
     
     - fetch:
-      src: /tmp/services.json 
-      dest: /tmp/
-      flat: yes 
+        src: /tmp/services.json 
+        dest: /tmp/
+        flat: yes 
     
 #     - include_vars:
 #         file: ./services.json 
